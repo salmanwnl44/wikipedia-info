@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <div class="container mt-4 ">
+        <h1 class="text-capitalize text-center">
+            search data from wikipedia
+        </h1>
+        <hr>
+        <div class="container">
+            <form action="/search" method="get">
+                <div class="input-group mb-3">
+                    <input name="query" type="text" class="form-control" placeholder="Search" aria-label="Search"
+                        aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="container" id="data">
+        {% if output %}
+        <h2>Wikipedia Content:</h2>
+        <p>{{ output|safe }}</p>
+        {% endif %}
+
+        {% if error %}
+        <p style="color: red;">{{ error }}</p>
+        {% endif %}
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+
+</html>
